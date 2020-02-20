@@ -1,0 +1,106 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://ScriptHUD.gd" type="Script" id=2]
+[ext_resource path="res://ScriptBullets.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Space Background.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Asteroid Brown.png" type="Texture" id=5]
+[ext_resource path="res://scriptMeteor.gd" type="Script" id=6]
+[ext_resource path="res://Assets/IDLE.PNG" type="Texture" id=7]
+[ext_resource path="res://Assets/Player.png" type="Texture" id=8]
+
+[node name="Game" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Background"]
+
+[node name="space1" type="Sprite" parent="Background/Sprite"]
+position = Vector2( 511.886, 252.696 )
+texture = ExtResource( 4 )
+
+[node name="Bullets" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="Bullets"]
+wait_time = 0.5
+
+[node name="Enemy Bullets" type="Node2D" parent="."]
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 520.191, 548.251 )
+scale = Vector2( 1.25, 1.25 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Player"]
+texture = ExtResource( 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
+polygon = PoolVector2Array( 4.5, -13, 4.5, -9.8, 6.5, -6.8, 6.5, -2.5, 7.2, -0.5, 7.9, -0.5, 15, 5.5, 16.6, 5.5, 21.5, 6.7, 21.5, 9.1, 22.5, 10.1, 22.5, 10.8, 22.2, 11.5, 21.5, 11.5, 21.5, 13.5, 19.5, 13.5, 19.5, 14.5, 4.5, 14.5, 4.5, 15.1, 3.7, 15.5, -2.9, 15.5, -3.9, 14.5, -12.7, 15.5, -13.5, 15.5, -13.5, 14.4, -21.5, 13.4, -21.5, 6.5, -18.7, 6.5, -15.5, 5.7, -15.5, 4.9, -7.5, 0, -7.5, -2.7, -3.2, -15.5, -1.5, -15.5, 1.2, -15.5 )
+
+[node name="Meteors" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Meteor" type="RigidBody2D" parent="Meteors"]
+position = Vector2( 0, -100 )
+script = ExtResource( 6 )
+min_speed = null
+max_speed = null
+damage = null
+
+[node name="Sprite" type="Sprite" parent="Meteors/Meteor"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Meteors/Meteor"]
+scale = Vector2( 0.5, 0.5 )
+polygon = PoolVector2Array( 7, -61.5, 8.2, -59, 17, -59, 17, -56.5, 18.2, -54, 31.4, -54, 33.4, -49, 42, -49, 42, -46.9, 49, -40.9, 49, -34, 51.4, -34, 53.4, -29, 55.8, -29, 59, -25.8, 59, -19, 61, -19, 68, -9, 70.8, -9, 74, -5.8, 74, 1.6, 79, 3.6, 79, 22, 76.5, 22, 74, 23.3, 74, 32, 71.9, 32, 55.9, 49, 54, 49, 54, 50.8, 50.8, 54, 43, 54, 36, 64, 28.4, 64, 26.4, 69, -11.4, 69, -13.4, 64, -26.4, 64, -28.4, 59, -41.4, 59, -43.4, 54, -52, 54, -52, 51.9, -59, 45.9, -59, 39, -61, 39, -73, 24, -75.8, 24, -79, 20.8, -79, -17, -76.7, -17, -69, -23, -69, -31.4, -64, -33.4, -64, -35.8, -60.8, -39, -53, -39, -41, -54, -33.4, -54, -31.4, -59, -23.2, -59, -22, -61.5, -22, -64, 7, -64 )
+
+[node name="Enemies" type="Node2D" parent="."]
+visible = false
+position = Vector2( -1.52588e-05, 1.05263 )
+
+[node name="Enemy" type="KinematicBody2D" parent="Enemies"]
+scale = Vector2( 0.35, 0.35 )
+
+[node name="Sprite" type="Sprite" parent="Enemies/Enemy"]
+texture = ExtResource( 7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemies/Enemy"]
+polygon = PoolVector2Array( 26, -64, 27.7, -54, 37.8, -54, 41, -50.8, 41, -41, 50.8, -41, 54, -37.8, 54, 12.7, 41, 14.7, 41, 37, 51.8, 37, 54.2, 65, 51.4, 65, 39, 67.4, 39, 64.3, 37.3, 54, 27.2, 54, 24, 50.8, 24, 41, -24, 41, -24, 51.7, -37, 53.7, -37, 63.8, -40.2, 67, -50.8, 67, -54, 63.8, -54, 39.3, -41, 37.3, -41, 15, -51.9, 15, -54.1, -39, -51.3, -39, -41, -40.7, -41, -50.8, -37.8, -54, -28, -54, -28, -64.2, -26, -65.2, -26, -67, 26, -67 )
+
+[node name="Explosions" type="Node2D" parent="."]
+position = Vector2( 1.52588e-05, -0.0474663 )
+
+[node name="HUD" type="Node2D" parent="."]
+position = Vector2( 0.0428619, -0.160335 )
+script = ExtResource( 2 )
+
+[node name="Health" type="Label" parent="HUD"]
+margin_left = 18.0
+margin_top = 17.0
+margin_right = 123.0
+margin_bottom = 77.0
+text = "Health:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="HUD"]
+margin_left = 895.381
+margin_top = 18.3541
+margin_right = 1000.38
+margin_bottom = 84.3541
+text = "Score"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="health_changed" from="Player" to="HUD" method="_on_Player_health_changed"]
+[connection signal="score_changed" from="Player" to="HUD" method="_on_Player_score_changed"]
