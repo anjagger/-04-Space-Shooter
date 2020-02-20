@@ -11,7 +11,7 @@ onready var Explosion = load("res://Scene/Explosion.tscn")
 func _ready():
 	randomize()
 	position.x = randi() % int(get_viewport_rect().size.x)
-	velocity.y = max(randi() % max_speed. min_speed)
+	velocity.y = max(randi() % max_speed, min_speed)
 	contact_monitor = true
 	set_max_contacts_reported(4)
 	linear_velocity = velocity
@@ -28,6 +28,9 @@ func _physics_process(delta):
 		queue_free()
 		
 	if position.y > get_viewport_rect().size.y + 50:
-		#state.set_linear_velocity(velocity)
 		pass
+		
+func _integrate_forces(state):
+	pass
+	
 	

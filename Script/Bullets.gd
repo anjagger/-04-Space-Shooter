@@ -12,5 +12,7 @@ func fire(b):
 		ready = false
 		$Timer.start()
 		
+		
+		
 func _on_Timer_timeout():
 	ready = true
