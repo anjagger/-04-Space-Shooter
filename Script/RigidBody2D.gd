@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 export var speed = 500
-onready var Explosion = load("res://Scenes/Explosions.tscn")
+onready var Explosion = load("res://Scene/Explosion.tscn")
 onready var Player = get_node("/root/Game/Player")
 
 func _ready():

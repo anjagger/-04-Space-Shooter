@@ -36,7 +36,7 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("fire"):
 		var b = Bullet.instance()
 		b.position = position
-		b.position = -20
+		b.position.y += -20
 		get_node("/root/Game/Bullets").fire(b)
 		
 		
@@ -55,11 +55,11 @@ func _physics_process(_delta):
 	if position.x > VP.x - margin:
 		velocity.x = 0
 		position.x = VP.x - margin
-	if position.y < VP.y - margin:
+	if position.y < margin:
 		velocity.y = 0
 		position.y = margin
 	if position.y > VP.y - margin:
 		velocity.y = 0
 		position.y = VP.y - margin
 		
-	var collision = move_and_collide(velocity)
+	var _collision = move_and_collide(velocity)
