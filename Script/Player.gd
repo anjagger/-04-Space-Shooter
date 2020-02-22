@@ -31,6 +31,7 @@ func change_score(s):
 	
 func die():
 	queue_free()
+	get_tree().change_scene("res://Scene/GameOver.tscn")
 	
 func _physics_process(_delta):
 	if Input.is_action_pressed("fire"):
