@@ -2,7 +2,7 @@ extends RigidBody2D
 
 var velocity = Vector2(0,0)
 export var min_speed = 100
-export var max_speed = 300
+export var max_speed = 400
 export var damage = 25
 export var score = 20
 

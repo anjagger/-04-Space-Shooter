@@ -24,7 +24,7 @@ texture = ExtResource( 4 )
 script = ExtResource( 6 )
 
 [node name="Timer" type="Timer" parent="Bullets"]
-wait_time = 0.3
+wait_time = 0.2
 one_shot = true
 
 [node name="Enemy Bullets" type="Node2D" parent="."]
@@ -47,7 +47,7 @@ polygon = PoolVector2Array( 4.5, -13, 4.5, -9.8, 6.5, -6.8, 6.5, -2.5, 7.2, -0.5
 script = ExtResource( 11 )
 
 [node name="Timer" type="Timer" parent="Hearts"]
-wait_time = 5.0
+wait_time = 3.5
 autostart = true
 
 [node name="Meteors" type="Node2D" parent="."]
@@ -57,7 +57,7 @@ __meta__ = {
 }
 
 [node name="Timer" type="Timer" parent="Meteors"]
-wait_time = 0.5
+wait_time = 0.4
 autostart = true
 
 [node name="Enemies" type="Node2D" parent="."]

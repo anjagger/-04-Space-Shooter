@@ -1,6 +1,6 @@
 extends Node2D
 
-export var max_enemies = 5
+export var max_enemies = 6
 export var probability = .3
 
 onready var Enemy = load("res://Scene/Enemy.tscn")

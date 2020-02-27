@@ -1,6 +1,6 @@
 extends Node2D
 
-export var probability = .2
+export var probability = .4
 onready var Meteor = load("res://Scene/Meteor.tscn")
 
 func _ready():

@@ -4,7 +4,7 @@ export var limit_y = 400
 export var score = 10
 export var speed = 2.0
 export var move_probability = .2
-export var fire_probability = .7
+export var fire_probability = .6
 
 onready var EnemyBullet = load("res://Scene/Enemy Bullet.tscn")
 
