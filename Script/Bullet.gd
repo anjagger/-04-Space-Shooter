@@ -17,8 +17,10 @@ func _physics_process(_delta):
 		get_node("/root/Game/Explosions").add_child(explosion)
 		if c.get_parent().name == "Enemies":
 			Player.change_score(c.score)
-		queue_free()
-		if c.get_parent(). name == "Meteors":
+			c.queue_free()
+		if c.get_parent().name == "Meteors":
+			Player.change_score(c.score)
+		if c.name == "":
 			Player.change_score(c.score)
 		queue_free()
 		

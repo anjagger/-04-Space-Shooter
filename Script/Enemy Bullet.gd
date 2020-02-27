@@ -16,7 +16,7 @@ func _physics_process(delta):
 		explosion.position = position
 		explosion.get_node("Sprite").playing = true
 		get_node("/root/Game/Explosions").add_child(explosion)
-		if c.get_parent().name == "Player":
+		if c.name == "Player":
 			Player.change_health(-damage)
 		queue_free()
 	if position.y > get_viewport_rect().size.y + 10:
