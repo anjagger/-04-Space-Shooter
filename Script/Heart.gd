@@ -3,11 +3,7 @@ extends RigidBody2D
 var velocity = Vector2(0,0)
 export var min_speed = 100
 export var max_speed = 300
-export var damage = 25
-export var score = 20
-
-onready var Explosion = load("res://Scene/Explosion.tscn")
-
+export var damage = 10
 
 func _ready():
 	randomize()
@@ -20,19 +16,12 @@ func _ready():
 func _physics_process(delta):
 	var colliding = get_colliding_bodies()
 	for c in colliding:
-		if c.name != "Bullet":
-			var explosion = Explosion.instance()
-			explosion.position = position
-			explosion.get_node("Sprite").playing = true
-			get_node("/root/Game/Explosions").add_child(explosion)
-			if c.name == "Player":
-				c.change_health(-damage)
-			queue_free()
+		if c.name == "Player":
+			c.change_health(damage)
+		queue_free()
 		
 	if position.y > get_viewport_rect().size.y + 50:
 		pass
 		
 func _integrate_forces(state):
 	pass
-	
-	
